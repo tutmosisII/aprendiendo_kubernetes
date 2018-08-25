@@ -1,4 +1,9 @@
 # Kubernetes
+## Vagrant Lab.
+Esta sección contiene indicaciones para iniciar una configuración local de Kubernetes usando [Vagrant](https://www.vagrantup.com/)
+
+[VagrantLab](VagrantLab.md)
+
 ## Qué es Kubernetes?
 Es un orquestador de contenedores que permite la administración de los mismos durante su ciclo de vida, desde el desarrollo hasta el momento de reclamar los recursos que estos utilizan.
 
@@ -76,13 +81,17 @@ Estas etiquetas se convierten en la metadata de los objetos.
 
 https://apprenda.com/blog/happy-1st-birthday-kubernetes-infographic/
 
-Pokemn Go on kubernetes
+Pokemon Go on kubernetes
 
 https://cloudplatform.googleblog.com/2016/09/bringing-Pokemon-GO-to-life-on-Google-Cloud.html
 
 Recursos de la comunidad de kubernetes
 
 https://github.com/kubernetes/community
+
+Cómo seleccionar la solución correcta de k8s
+
+https://kubernetes.io/docs/setup/pick-right-solution/
 
 
 ## Kubernetes tools

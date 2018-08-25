@@ -24,4 +24,14 @@ function install_with_CNI_calico () {
 }
 
 install_with_CNI_calico
-grep -i token kubeadm.log
+sleep 5
+echo "Configuring user permisions"
+mkdir -p $HOME/.kube
+sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+echo "Configuring Calico Network"
+kubectl apply -f https://docs.projectcalico.org/v3.2/getting-started/kubernetes/installation/hosted/etcd.yaml
+kubectl apply -f https://docs.projectcalico.org/v3.2/getting-started/kubernetes/installation/rbac.yaml
+kubectl apply -f https://docs.projectcalico.org/v3.2/getting-started/kubernetes/installation/hosted/calico.yaml
+kubectl apply -f https://docs.projectcalico.org/v3.2/getting-started/kubernetes/installation/hosted/calico.yaml
+kubectl taint nodes --all node-role.kubernetes.io/master-
