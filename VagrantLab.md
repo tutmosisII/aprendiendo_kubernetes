@@ -1,6 +1,6 @@
 # Vagrant Lab
 
-Para ejecutar este laboratorio usted debe tener instalado en su computardo Virtualbox y Vagrant.
+Para ejecutar este laboratorio usted debe tener instalado en su computador Virtualbox y Vagrant.
 
 ## 1) Clone o descague este repositorio
 
@@ -29,14 +29,15 @@ Se produce una salida similar a esta:
     masterk:
     masterk: Your Kubernetes master has initialized successfully!
 
-En este punto usted ha inicializado un nodo master de kubelet usando la rede de calico.
+En este punto usted ha inicializado un nodo master de kubelet usando la red de calico.
 
-Siga las instrucciones que se imprimen al final para permitir que otros usuarios diferentes a root puedan acceder al cluster.
-
-Para ello, ingrese al nodo usado:
+Usted puede verificar el estado del master creado usando los siguientes comandos:
 
     vagrant ssh
+    kubectl get nodes
 
-    mkdir -p $HOME/.kube
-    sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
-    sudo chown $(id -u):$(id -g) $HOME/.kube/config
+Una vez listados los nodos tome el id del master y úselo para leer la descripción.
+
+    kubectl describe node <id_node>
+
+Pude verificar También que los pods de [calico](https://www.projectcalico.org/) están corriendo

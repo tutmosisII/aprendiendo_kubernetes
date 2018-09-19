@@ -4,6 +4,7 @@ Esta sección contiene indicaciones para iniciar una configuración local de Kub
 
 [VagrantLab](VagrantLab.md)
 
+
 ## Qué es Kubernetes?
 Es un orquestador de contenedores que permite la administración de los mismos durante su ciclo de vida, desde el desarrollo hasta el momento de reclamar los recursos que estos utilizan.
 
@@ -29,11 +30,11 @@ También se le nombra cómo K8s y se pronuncua Kate's
 
 ## Microservicios
 
-En micro servicios cada aspecto de una aplicación tradicional es remplazado con un dedicado pero transitivo agente. Estos agentes se pueden usar entresí por medio de un API.
+En micro servicios cada aspecto de una aplicación tradicional es remplazado con un dedicado pero transitivo agente. Estos agentes se pueden usar entre sí por medio de un API.
 
 ## Configuración de Kubernetes
 
-La configuración es almacenada en JSON, pero es escrita en YAML los agentes de K8s los pasan a JSON pra persistirlos.
+La configuración es almacenada en JSON, pero es escrita en YAML los agentes de K8s los pasan a JSON para persistirlos.
 
 ## Contenedores Docker
 
@@ -41,9 +42,9 @@ Los contenedores han incrementado fuertemente la experiencia de desarrollo, perm
 
 ## Desarrollo con Contenedores
 
-Para poder aprovechar su potneciál se requiere CI y un pipeline bien definido que permita construir, probar y verificar la imagenes.
+Para poder aprovechar su potencial se requiere CI y un pipeline bien definido que permita construir, probar y verificar la imágenes.
 
-Se require una infraestructura de red y almacenamiento que se comporte de manera flexible.
+Se requiere una infraestructura de red y almacenamiento que se comporte de manera flexible.
 
 ### Otras soluciones similares
 
@@ -57,7 +58,7 @@ https://ai.google/research/pubs/pub43438
 
 ## Componentes de los Minios
 
-**Kubelet:** Es el encargado de recibir las ornes para ejecutar contenedores en los nodos.
+**Kubelet:** Es el encargado de recibir las ordenes para ejecutar contenedores en los nodos.
 
 **Kube-Proxy:** Maneja las reglas de red para exponer el contenedor.
 
@@ -99,7 +100,7 @@ https://kubernetes.io/docs/setup/pick-right-solution/
 
 **Minukube**: Ambiente virtual mínimo, permite configurar un cluster de kubernetes en una máquian sigular.
 
-**kubeadm**: Facilita el manejo de kubernetes sin usar intaladores específicos de un vendedor. Consta de dos comandos **kubeadm init** para iniciar le nodo master y **kubadm join** para unirse nodos de trabajo a un cluster.
+**kubeadm**: Facilita el manejo de kubernetes sin usar instaladores específicos de un vendedor. Consta de dos comandos **kubeadm init** para iniciar le nodo master y **kubadm join** para unirse nodos de trabajo a un cluster.
 
 **hyperkube**: Es un contenedor que puede iniciarse en diferentes nodos para crear un cluster de k8s
 kubectl
@@ -118,9 +119,10 @@ Esta red define una red(network) en el segmento 10.244.0.0/16.
 [Red Calico](https://docs.projectcalico.org/v2.6/getting-started/kubernetes/installation/hosted/kubeadm/1.6/calico.yaml)
 Esta red define una red(network) en el segmento 192.168.0.0/16 y tiene mayores prestaciones de seguridad por medio del uso de políticas de red.
 
-Una rede debe eser considerada libre de conflictos con las IPs, por ello las diferentes versiones.
+Una rede debe ser considerada libre de conflictos con las IPs, por ello las diferentes versiones.
 
   Otras redes:  kube-router, romana, weave net
 ## Cosas a revisar
 ### Para instalar en ubuntu 18.04 bionic
 https://linuxconfig.org/how-to-install-kubernetes-on-ubuntu-18-04-bionic-beaver-linux
+S
