@@ -1,7 +1,7 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 require "ipaddr"
-base_ip="192.168.118.10"
+base_ip="10.0.1.100"
 
 Vagrant.configure("2") do |config|
   ip_address = IPAddr.new base_ip
@@ -15,12 +15,15 @@ Vagrant.configure("2") do |config|
   #config.vm.network "forwarded_port", guest: 9090, host: 9090
   #config.vm.network "forwarded_port", guest: 3000, host: 3000
   ip_address = ip_address.succ
-  config.vm.define "knode1" do |kna|
+  config.vm.define "node1k" do |nk|
       #mk.vm.box = "ubuntu/bionic64"
-      kna.vm.box = "ubuntu/xenial64"
-      kna.vm.network "private_network", ip: ip_address.to_s
-      kna.vm.provision "shell", inline: "cd /vagrant/scripts;sudo ./installDocker.sh"
-      kna.vm.provision "shell", inline: "sudo cp /vagrant/scripts/daemon.json /etc/docker/;sudo service docker restart"
-      kna.vm.provision "shell", inline: "cd /vagrant/scripts;sudo ./installkkk.sh"
+      nk.vm.box = "ubuntu/xenial64"
+      nk.vm.network "private_network", ip: ip_address.to_s
+      nk.vm.provision "shell", inline: "cd /vagrant/scripts;sudo ./installDocker.sh"
+      nk.vm.provision "shell", inline: "sudo cp /vagrant/scripts/daemon.json /etc/docker/;sudo service docker restart"
+      nk.vm.provision "shell", inline: "cd /vagrant/scripts;sudo ./installkkk.sh"
+      nk.vm.provision "shell", inline: "cd /vagrant/scripts;sudo ./noRootUserAccess.sh"
+      nk.vm.provision "shell", inline: "cd /vagrant/scripts;sudo ./ennableCompletion.sh"
+
    end
 end

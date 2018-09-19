@@ -17,21 +17,23 @@ function install_with_CNI_flanel () {
 }
 
 function install_with_CNI_calico () {
-  wget -O calico.yml  https://docs.projectcalico.org/v2.6/getting-started/kubernetes/installation/hosted/kubeadm/1.6/calico.yaml
+  #wget -O calico.yml  https://docs.projectcalico.org/v2.6/getting-started/kubernetes/installation/hosted/kubeadm/1.6/calico.yaml
+  wget -O /tmp/calico.yml  https://docs.projectcalico.org/v3.2/getting-started/kubernetes/installation/hosted/calico.yaml
   CALICO_NETWORK=$(grep "value.*/16" calico.yml|nawk '{print substr($2,2,length($2)-2)}')
   echo "Calico Network to use $CALICO_NETWORK"
-  kubeadm init --pod-network-cidr $CALICO_NETWORK 2>&1 kubeadm.log
+  pwd
+  echo "1: $1"
+  kubeadm init --apiserver-advertise-address $1 --pod-network-cidr $CALICO_NETWORK 2>&1 > kubeadm.log
 }
 
-install_with_CNI_calico
+install_with_CNI_calico $1
 sleep 5
-echo "Configuring user permisions"
-mkdir -p $HOME/.kube
+mkdir $HOME/.kube
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
-sudo chown $(id -u):$(id -g) $HOME/.kube/config
+sudo chown $(id -u ):$(id -g) $HOME/.kube/config
 echo "Configuring Calico Network"
 kubectl apply -f https://docs.projectcalico.org/v3.2/getting-started/kubernetes/installation/hosted/etcd.yaml
 kubectl apply -f https://docs.projectcalico.org/v3.2/getting-started/kubernetes/installation/rbac.yaml
-kubectl apply -f https://docs.projectcalico.org/v3.2/getting-started/kubernetes/installation/hosted/calico.yaml
-kubectl apply -f https://docs.projectcalico.org/v3.2/getting-started/kubernetes/installation/hosted/calico.yaml
-kubectl taint nodes --all node-role.kubernetes.io/master-
+kubectl apply -f /tmp/calico.yml
+#Ennable command completion
+echo "source <(kubectl completion bash)" >> /etc/bash.bashrc
