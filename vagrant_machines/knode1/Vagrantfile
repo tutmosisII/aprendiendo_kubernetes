@@ -22,9 +22,9 @@ Vagrant.configure("2") do |config|
       nk.vm.network "private_network", ip: ipx
       nk.vm.provision "shell", inline: "cd /vagrant/scripts;sudo ./installDocker.sh"
       nk.vm.provision "shell", inline: "sudo cp /vagrant/scripts/daemon.json /etc/docker/;sudo service docker restart"
-      nk.vm.provision "shell", inline: "cd /vagrant/scripts;sudo ./installkkk.sh"
+      nk.vm.provision "shell", inline: "cd /vagrant/scripts;sudo ./installkkk.sh #{ipx}"
       nk.vm.provision "shell", inline: "cd /vagrant/scripts;sudo ./noRootUserAccess.sh"
-      nk.vm.provision "shell", inline: "cd /vagrant/scripts;sudo ./ennableCompletion.sh #{ipx}"
+      nk.vm.provision "shell", inline: "cd /vagrant/scripts;sudo ./ennableCompletion.sh"
 
    end
 end
