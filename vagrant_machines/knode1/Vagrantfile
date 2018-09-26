@@ -16,9 +16,11 @@ Vagrant.configure("2") do |config|
   #config.vm.network "forwarded_port", guest: 3000, host: 3000
   ip_address = ip_address.succ
   ipx = ip_address.to_s
-  config.vm.define "node1k" do |nk|
+
+  config.vm.define "nodek1" do |nk|
       #mk.vm.box = "ubuntu/bionic64"
       nk.vm.box = "ubuntu/xenial64"
+      nk.vm.hostname = "nodek1"
       nk.vm.network "private_network", ip: ipx
       nk.vm.provision "shell", inline: "cd /vagrant/scripts;sudo ./installDocker.sh"
       nk.vm.provision "shell", inline: "sudo cp /vagrant/scripts/daemon.json /etc/docker/;sudo service docker restart"

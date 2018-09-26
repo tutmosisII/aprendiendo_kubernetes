@@ -27,7 +27,13 @@ function install_with_CNI_calico () {
   CALICO_NETWORK=$(grep "value.*/16" calico.yml|nawk '{print substr($2,2,length($2)-2)}')
   echo "Calico Network to use $CALICO_NETWORK"
   pwd
-  kubeadm init --apiserver-advertise-address $LOCAL_IP --pod-network-cidr $CALICO_NETWORK 2>&1 > kubeadm.log
+  NODENAME=$(hostname -s)
+  kubeadm init --apiserver-cert-extra-sans $LOCAL_IP  --node-name $NODENAME --apiserver-advertise-address $LOCAL_IP --pod-network-cidr $CALICO_NETWORK 2>&1 > kubeadm.log
+}
+
+function dashboard() {
+  kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/master/src/deploy/recommended/kubernetes-dashboard.yaml
+  kubectl proxy
 }
 
 install_with_CNI_calico $1
@@ -39,5 +45,7 @@ echo "Configuring Calico Network"
 kubectl apply -f https://docs.projectcalico.org/v3.2/getting-started/kubernetes/installation/hosted/etcd.yaml
 kubectl apply -f https://docs.projectcalico.org/v3.2/getting-started/kubernetes/installation/rbac.yaml
 kubectl apply -f /tmp/calico.yml
+#dashboard port 80001
+dashboard &
 #Ennable command completion
 echo "source <(kubectl completion bash)" >> /etc/bash.bashrc
