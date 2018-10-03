@@ -55,6 +55,13 @@ Se requiere una infraestructura de red y almacenamiento que se comporte de maner
 
 https://ai.google/research/pubs/pub43438
 
+## Kubernetes for sysadmin
+
+Esta presentación muestar como ejecutar atareas de mantenimiento en las aplicaciones
+despleagadas en k8s.
+
+https://www.youtube.com/watch?v=HlAXp0-M6SY
+
 
 ## Componentes de los Minios
 

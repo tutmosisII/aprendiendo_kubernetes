@@ -24,7 +24,7 @@ function install_with_CNI_flanel () {
 
 function install_with_CNI_calico () {
   wget -O /tmp/calico.yml  https://docs.projectcalico.org/v3.2/getting-started/kubernetes/installation/hosted/calico.yaml
-  CALICO_NETWORK=$(grep "value.*/16" calico.yml|nawk '{print substr($2,2,length($2)-2)}')
+  CALICO_NETWORK=$(grep "value.*/16" /tmp/calico.yml|nawk '{print substr($2,2,length($2)-2)}')
   echo "Calico Network to use $CALICO_NETWORK"
   pwd
   NODENAME=$(hostname -s)
