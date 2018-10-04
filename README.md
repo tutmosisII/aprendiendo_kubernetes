@@ -2,7 +2,11 @@
 ## Vagrant Lab.
 Esta sección contiene indicaciones para iniciar una configuración local de Kubernetes usando [Vagrant](https://www.vagrantup.com/)
 
-[VagrantLab](VagrantLab.md)
+![Máquinas VM](images/VMBoxmachines.png)
+
+[1. VagrantLab](VagrantLab.md)
+
+[2. Deplegando Primer Applicación](DeployLab.md)
 
 
 ## Qué es Kubernetes?
