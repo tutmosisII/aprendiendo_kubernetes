@@ -33,7 +33,7 @@ function install_with_CNI_calico () {
 
 function dashboard() {
   kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/master/src/deploy/recommended/kubernetes-dashboard.yaml
-  kubectl proxy
+  kubectl proxy --address='10.0.1.100'
 }
 
 install_with_CNI_calico $1
