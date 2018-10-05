@@ -1,5 +1,3 @@
 #!/bin/bash
-mkdir -p $HOME/.kube
-sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
-sudo chown $(id -u):$(id -g) $HOME/.kube/config
-less .kube/config
+## Configurando Permisos a usuario vagrant para Docker
+sudo usermod -aG docker vagrant

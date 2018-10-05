@@ -7,7 +7,6 @@ EOF
 #KUBE_VERSION=1.10.1-00
 KUBE_VERSION=1.11.3-00
 apt-get update
-sudo apt-get -y install docker-ce=17.03.2~ce-0~ubuntu-xenial
 sudo apt-get install -y --allow-downgrades kubelet=$KUBE_VERSION kubeadm=$KUBE_VERSION kubectl=$KUBE_VERSION
 #Configuring kubectl to the secondary vm network
 echo "secondary IP vagrant: $1"
