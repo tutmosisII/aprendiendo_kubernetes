@@ -27,6 +27,6 @@ Vagrant.configure("2") do |config|
       mk.vm.provision "shell", inline: "cd /vagrant/scripts;sudo ./noRootUserAccess.sh"
       mk.vm.provision "shell", inline: "cd /vagrant/scripts;sudo ./userPermisions.sh"
       mk.vm.provision "shell", inline: "cd /vagrant/scripts;sudo ./ennableCompletion.sh"
-
+      
    end
 end

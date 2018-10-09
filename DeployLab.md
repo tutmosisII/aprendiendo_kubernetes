@@ -47,3 +47,41 @@ kubectl create -f /vagrant/primer_nginx.yaml
 Haga nuevamente la verificación de los despliegues.
 
 ## 4) Exponiendo nginx en el puerto 80
+
+Edite el archivo **primer_nginx.yaml**
+
+---
+Original
+```
+...
+spec:
+   containers:
+   - image: nginx
+     imagePullPolicy: Always
+     name: nginx
+     resources: {}
+...
+
+```
+---
+Modificado
+```
+...
+spec:
+   containers:
+   - image: nginx
+     imagePullPolicy: Always
+     name: nginx
+     ports:
+     - containerPort: 80
+       protocol: TCP
+     resources: {}
+...
+```
+---
+Se adicionaron tres líneas en la sección **ports**. Luego de modificar el archivo elimine y cree nuevamente el Pod.
+
+kubectl get deploy, pod
+kubectl expose deployment/nginx
+kubectl get service nginx
+kubectl get ep nginx
