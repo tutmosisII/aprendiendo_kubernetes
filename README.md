@@ -111,6 +111,10 @@ Otro intento con vagrant
 
 https://medium.com/@joatmon08/playing-with-kubeadm-in-vagrant-machines-36598b5e8408
 
+Container Training
+
+https://container.training
+
 ## Kubernetes tools
 
 
