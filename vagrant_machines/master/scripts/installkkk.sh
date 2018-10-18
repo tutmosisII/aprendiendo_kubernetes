@@ -30,21 +30,17 @@ function install_with_CNI_calico () {
   kubeadm init --apiserver-cert-extra-sans $LOCAL_IP  --node-name $NODENAME --apiserver-advertise-address $LOCAL_IP --pod-network-cidr $CALICO_NETWORK 2>&1 > kubeadm.log
 }
 
-function dashboard() {
-  kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/master/src/deploy/recommended/kubernetes-dashboard.yaml
-  kubectl proxy --address='10.0.1.100'
-}
+
 
 install_with_CNI_calico $1
 sleep 5
 mkdir $HOME/.kube
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo cp -i /etc/kubernetes/admin.conf /vagrant/config
 sudo chown $(id -u ):$(id -g) $HOME/.kube/config
 echo "Configuring Calico Network"
 kubectl apply -f https://docs.projectcalico.org/v3.2/getting-started/kubernetes/installation/hosted/etcd.yaml
 kubectl apply -f https://docs.projectcalico.org/v3.2/getting-started/kubernetes/installation/rbac.yaml
 kubectl apply -f /tmp/calico.yml
-#dashboard port 80001
-dashboard &
 #Ennable command completion
 echo "source <(kubectl completion bash)" >> /etc/bash.bashrc

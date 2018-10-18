@@ -1,4 +1,7 @@
 # Kubernetes
+
+Este taller esta acompañado de una explicación en mi [blog](https://tutmosisii.wordpress.com/2018/10/10/kubernetes-cluster-con-vagrant/)
+
 ## Vagrant Lab.
 
 Esta sección contiene indicaciones para iniciar una configuración local de Kubernetes usando [Vagrant](https://www.vagrantup.com/), en lo posible verifique
@@ -8,10 +11,12 @@ que tiene instaladas las **últimas versiones** de Virtualbox y Vagrant.
 
 [1. VagrantLab](VagrantLab.md)
 
-[2. Deplegando Primer Applicación](DeployLab.md)
+[2. Desplegando La Primera Aplicación](DeployLab.md)
 
+[3. Instalación del Dashboard](DashboadLab.md)
 
 ## Qué es Kubernetes?
+
 Es un orquestador de contenedores que permite la administración de los mismos durante su ciclo de vida, desde el desarrollo hasta el momento de reclamar los recursos que estos utilizan.
 
 
@@ -23,6 +28,7 @@ Es un orquestador de contenedores que permite la administración de los mismos d
                        /        \
             Escalabilidad ___ Tolerancia a
                                fallos
+
 **NOTA:** Kubernetes viene de la palabra griega usada para denominar al Piloto.
 
 Tiene sus orígenes en Borg , un proyecto de Google, antes de entregarlo a la comunidad lo usaron por 15 años.
@@ -30,9 +36,9 @@ Tiene sus orígenes en Borg , un proyecto de Google, antes de entregarlo a la co
 ## Propiedades de Kubernetes
 
 * Desacoplado
-* Transitivo: Sus componentes pueden desconetarse y reconectarse en cualquiermomento.
+* Transitivo: Sus componentes pueden desconetarse y reconectarse en cualquier momento.
 
-También se le nombra cómo K8s y se pronuncua Kate's
+También se le nombra cómo K8s y se pronuncia Kate's
 
 ## Microservicios
 
@@ -141,4 +147,3 @@ Una rede debe ser considerada libre de conflictos con las IPs, por ello las dife
 ## Cosas a revisar
 ### Para instalar en ubuntu 18.04 bionic
 https://linuxconfig.org/how-to-install-kubernetes-on-ubuntu-18-04-bionic-beaver-linux
-S
