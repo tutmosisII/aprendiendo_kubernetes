@@ -1,0 +1,7 @@
+{"version": 2, "width": 149, "height": 24, "timestamp": 1539874307, "env": {"SHELL": "/bin/bash", "TERM": "xterm-256color"}, "title": "DBUser"}
+[0.217044, "o", "\u001b]0;alejandro@alejandro-Lenovo-ideapad-Y700-15ISK: ~/2018/Learning/aprendiendo_kubernetes\u0007\u001b[01;32mkubernetes@kubernetes\u001b[00m:\u001b[01;34m~/2018/Learning/aprendiendo_kubernetes\u001b[00m$ "]
+[1.530069, "o", "kubectl apply -f despliegues/k8s-admin-dashboard-user.yaml"]
+[3.439682, "o", "\r\n"]
+[3.642793, "o", "serviceaccount/admin-user created\r\n"]
+[3.663092, "o", "clusterrolebinding.rbac.authorization.k8s.io/admin-user created\r\n"]
+[3.67243, "o", "\u001b]0;alejandro@alejandro-Lenovo-ideapad-Y700-15ISK: ~/2018/Learning/aprendiendo_kubernetes\u0007\u001b[01;32mkubernetes@kubernetes\u001b[00m:\u001b[01;34m~/2018/Learning/aprendiendo_kubernetes\u001b[00m$ "]
